@@ -20,7 +20,7 @@ print("_ " * (len(random_word)))
 #Variables needed for the game
 max_tries = 6
 tries = 0
-guessed_letters = []
+guessed_letters = []   
 
 
 
