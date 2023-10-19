@@ -1,4 +1,5 @@
 import random
+import sys
 # Create Word List for the games words
 word_list = [
     "apple",
@@ -32,11 +33,11 @@ guessed_letters = []
 # Start game loop using while loop
 def failed_game():
     print("GAME OVER!")
-    exit(1)
+    sys.exit(1)
 
 def won_game():
     print("GOOD JOB!")
-    exit(0)
+    sys.exit(0)
 
 # This function is checking that the guess is within the selected word, 
 # if correct saving it to local iteration variable then returning the iteration variable once all letters are found
@@ -55,6 +56,7 @@ def correct_guess(correct_letter):
 def incorrect_guess(wrong_letter):
     guessed_letters.append(wrong_letter)
     print(guessed_letters)
+    
 
 # while loop runs main function of game asks user to guess and checks correct or incorrect and calls correct functions 
 while True:
@@ -63,9 +65,10 @@ while True:
         print("You guessed this letter already, try again!")
     else:
         if guess in selected_word:
+            incorrect_guesses -= 1
             displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
             print(displayed_word)
-            if "_" not in displayed_word:
+        if "_" not in displayed_word:
                 won_game()
         else:
             if incorrect_guesses == max_incorrect_guesses:
@@ -73,24 +76,4 @@ while True:
             else:
                 incorrect_guesses += 1
                 incorrect_guess(guess) # calls incorrect guess function updates counter
-
- 
-
-    
-
-
-
-
-    
-
-    
-
-  
-
-
-
-
-
-
-
-
+                
