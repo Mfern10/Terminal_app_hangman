@@ -1,5 +1,6 @@
 import random
 import sys
+import pyfiglet
 # Create Word List for the games words
 word_list = [
     "apple",
@@ -10,13 +11,18 @@ word_list = [
     "peach"
 ]
 
+ascii_banner = pyfiglet.figlet_format("HANGMAN")
+print(ascii_banner)
+
+print(""" <------Can you guess the secret word!-----> """)
+
 # Select a random word from the List
 def select_word(word_list):
     return random.choice(word_list)
 
 selected_word = select_word(word_list)
 
-print(selected_word)
+# print(selected_word)
 
 # Display the selected word as undercores
 def initialize_displayed_word(word):
@@ -36,7 +42,7 @@ def failed_game():
     sys.exit(1)
 
 def won_game():
-    print("GOOD JOB!")
+    print("Congratulations! You have won the game!")
     sys.exit(0)
 
 # This function is checking that the guess is within the selected word, 
