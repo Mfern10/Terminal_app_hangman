@@ -25,14 +25,18 @@ displayed_word = initialize_displayed_word(selected_word)
 print(displayed_word)
 
 # Variables need for the game
-max_incorrect_guesses = 6
-current_tries = 0
+max_incorrect_guesses = 5
+incorrect_guesses = 0
 guessed_letters = []
 
 # Start game loop using while loop
 def failed_game():
     print("GAME OVER!")
     exit(1)
+
+def won_game():
+    print("GOOD JOB!")
+    exit(0)
 
 # This function is checking that the guess is within the selected word, 
 # if correct saving it to local iteration variable then returning the iteration variable once all letters are found
@@ -46,19 +50,13 @@ def correct_guess(correct_letter):
     return  iteration
    
             
+# Checks if guess is incorrect and not in guessed letter list will append list
+# and display guessed letters guessed on screen
+def incorrect_guess(wrong_letter):
+    guessed_letters.append(wrong_letter)
+    print(guessed_letters)
 
-    
-def incorrect_guess():
-    pass
-#     if guess not in selected_word:
-#         guessed_letters.append(guessed)
-#         print(guessed_letters)
-#     else:
-#         for guess in guessed_letters:
-#              current_tries += 1
-
-    
-
+# while loop runs main function of game asks user to guess and checks correct or incorrect and calls correct functions 
 while True:
     guess = input("Guess a Letter: ")
     if guess in guessed_letters:
@@ -67,8 +65,14 @@ while True:
         if guess in selected_word:
             displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
             print(displayed_word)
+            if "_" not in displayed_word:
+                won_game()
         else:
-            incorrect_guess() # calls incorrect guess function updates counter
+            if incorrect_guesses == max_incorrect_guesses:
+                failed_game()
+            else:
+                incorrect_guesses += 1
+                incorrect_guess(guess) # calls incorrect guess function updates counter
 
  
 
