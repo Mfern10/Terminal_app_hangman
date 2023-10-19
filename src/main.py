@@ -10,17 +10,46 @@ word_list = [
 ]
 
 # Select a random word from the List
-random_word = random.choice(word_list)
+def select_word(word_list):
+    return random.choice(word_list)
 
-print(random_word)
+selected_word = select_word(word_list)
 
-# Display empty word space with underscores
-print("_ " * (len(random_word)))
+print(selected_word)
 
-#Variables needed for the game
-max_tries = 6
-tries = 0
-guessed_letters = []   
+# Display the selected word as undercores
+def initialize_displayed_word(word):
+    return "_ " * len(word)
+
+displayed_word = initialize_displayed_word(selected_word)
+print(displayed_word)
+
+# Variables need for the game
+max_incorrect_guesses = 6
+current_tries = 0
+guessed_letters = []
+
+# Start game loop using while loop
+def failed_game():
+    print("GAME OVER!")
+    exit(1)
+
+while True:
+    guess = input("Guess a Letter: ")
+    current_tries += 1
+    if current_tries == max_incorrect_guesses:
+        failed_game()
+
+    
+
+
+
+
+    
+
+    
+
+  
 
 
 
