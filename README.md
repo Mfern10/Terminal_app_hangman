@@ -6,10 +6,8 @@
 
     HAVE FUN！！！！ LET'S PLAY HANGMAN!!!!
 
-
-
-
 ## References
+
 ## Links
 
 ## Code Style Guide

@@ -26,13 +26,61 @@ def initialize_displayed_word(word):
 displayed_word = initialize_displayed_word(selected_word)
 print(displayed_word)
 
+
 # Variables need for the game
-max_incorrect_guesses = 5
+max_incorrect_guesses = 6
 incorrect_guesses = 0
 guessed_letters = []
 
+# Hangman Art 
+def print_hangman(incorrect_guesses):
+    if incorrect_guesses == 0:
+        print("\n+---+")
+        print("    |")
+        print("    |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 1):
+        print("\n+---+")
+        print("O   |")
+        print("    |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 2):
+        print("\n+---+")
+        print("O   |")
+        print("|   |")
+        print("    |")
+        print("   ===")
+    elif(incorrect_guesses == 3):
+        print("\n+---+")
+        print(" O   |")
+        print("/|   |")
+        print("     |")
+        print("    ===")
+    elif(incorrect_guesses == 4):
+        print("\n+---+")
+        print(" O   |")
+        print("/|\  |")
+        print("     |")
+        print("    ===")
+    elif(incorrect_guesses == 5):
+        print("\n+---+")
+        print("  O   |")
+        print(" /|\  |")
+        print(" /    |")
+        print("     ===")
+    elif(incorrect_guesses == 6):
+        print("\n+---+")
+        print("  O   |")
+        print(" /|\  |")
+        print(" / \  |")
+        print("     ===")
+    
+
 # call this function when the player fails
 def failed_game():
+    print_hangman(incorrect_guesses)
     print("GAME OVER!")
     sys.exit(1)
 
@@ -56,15 +104,14 @@ def correct_guess(correct_letter):
 # Checks if guess is incorrect and not in guessed letter list will append list
 # and display guessed letters guessed on screen
 def incorrect_guess(wrong_letter):
+    print_hangman(incorrect_guesses)
     guessed_letters.append(wrong_letter)
     print(f"These are your previous guesses! {guessed_letters}")
-
 
 ascii_banner = pyfiglet.figlet_format("HANGMAN!")
 print(ascii_banner)
 
-
-
+# Inital screen to display if user would like to play or exit
 def main_menu():
     print(""" <------Can you guess the secret word!-----> """)
     print("1. Play")
@@ -72,9 +119,6 @@ def main_menu():
 
     choice = input("Enter your choice: ")
     return choice
-
-
-    
 
 # Main Menu Initalises game and asks user if they want to play!  
 while True:
