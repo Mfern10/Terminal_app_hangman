@@ -11,27 +11,6 @@ word_list = [
     "peach"
 ]
 
-# Select a random word from the List
-def select_word(word_list):
-    return random.choice(word_list)
-
-selected_word = select_word(word_list)
-
-# print(selected_word)
-
-# Display the selected word as undercores
-def initialize_displayed_word(word):
-    return "_" * len(word)
-
-displayed_word = initialize_displayed_word(selected_word)
-print(displayed_word)
-
-
-# Variables need for the game
-max_incorrect_guesses = 6
-incorrect_guesses = 0
-guessed_letters = []
-
 # Hangman Art 
 def print_hangman(incorrect_guesses):
     if incorrect_guesses == 0:
@@ -76,16 +55,35 @@ def print_hangman(incorrect_guesses):
         print(" /|\  |")
         print(" / \  |")
         print("     ===")
-    
+
+# Variables need for the game
+max_incorrect_guesses = 5
+incorrect_guesses = 0
+guessed_letters = []
+
+# Select a random word from the List
+def select_word(word_list):
+    return random.choice(word_list)
+
+selected_word = select_word(word_list)
+
+# Display the selected word as undercores
+def initialize_displayed_word(word):
+    return "_" * len(word)
+
+displayed_word = initialize_displayed_word(selected_word)
 
 # call this function when the player fails
 def failed_game():
     print_hangman(incorrect_guesses)
-    print("GAME OVER!")
+    ascii_banner = pyfiglet.figlet_format("GAME OVER!")
+    print(ascii_banner)
     sys.exit(1)
 
 # Call this function when the player wins
 def won_game():
+    ascii_banner = pyfiglet.figlet_format("WINNER!")
+    print(ascii_banner)
     print("Congratulations! You have won the game!")
     sys.exit(0)
 
@@ -100,7 +98,6 @@ def correct_guess(correct_letter):
             iteration = ("".join(lst))
     return  iteration
    
-            
 # Checks if guess is incorrect and not in guessed letter list will append list
 # and display guessed letters guessed on screen
 def incorrect_guess(wrong_letter):
@@ -108,15 +105,13 @@ def incorrect_guess(wrong_letter):
     guessed_letters.append(wrong_letter)
     print(f"These are your previous guesses! {guessed_letters}")
 
-ascii_banner = pyfiglet.figlet_format("HANGMAN!")
-print(ascii_banner)
-
 # Inital screen to display if user would like to play or exit
 def main_menu():
+    ascii_banner = pyfiglet.figlet_format("HANGMAN!")
+    print(ascii_banner)
     print(""" <------Can you guess the secret word!-----> """)
     print("1. Play")
     print("2. Exit")
-
     choice = input("Enter your choice: ")
     return choice
 
@@ -126,11 +121,10 @@ while True:
     if user_choice == "1":
        selected_word = select_word(word_list)
        displayed_word = initialize_displayed_word(selected_word)
-
        print("New Game! Goodluck!", displayed_word)
     elif user_choice == "2":
         print("Thanks for playing!")
-        break 
+        sys.exit(0) 
     else: 
         print("Invalid choice. Please select a valid choice.")
         
@@ -145,11 +139,10 @@ while True:
                 displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
                 print(displayed_word)
             if "_" not in displayed_word:
-                won_game()
+                won_game()# calls the won game function
             else:
                 if incorrect_guesses == max_incorrect_guesses:
-                    failed_game()
+                    failed_game()# calls failed game function
                 else:
                     incorrect_guesses += 1
                     incorrect_guess(guess) # calls incorrect guess function updates counter
-           
