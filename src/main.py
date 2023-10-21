@@ -35,6 +35,7 @@ def failed_game():
     print_hangman(incorrect_guesses)
     ascii_banner = pyfiglet.figlet_format("GAME OVER!")
     print(ascii_banner)
+    print(f"Nice try the word you were looking for was: {selected_word}")
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
     sys.exit(1)
@@ -44,9 +45,10 @@ def failed_game():
 def won_game():
     ascii_banner = pyfiglet.figlet_format("WINNER!")
     print(ascii_banner)
-    print("Congratulations! You have won the game!")
+    print(f"Congratulations! You have won the game! The word was: {displayed_word}")
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
+    sys.exit(0)
 
 # This function is checking that the guess is within the selected word, 
 # if correct saving it to local iteration variable then returning the iteration variable once all letters are found
@@ -61,10 +63,14 @@ def correct_guess(correct_letter):
    
 # Checks if guess is incorrect and not in guessed letter list will append list
 # and display guessed letters guessed on screen
-def incorrect_guess(wrong_letter):
+def incorrect_guess():
     print_hangman(incorrect_guesses)
-    guessed_letters.append(wrong_letter)
-    print(f"These are your previous guesses! {guessed_letters}")
+
+def display_guessed_letters(list_of_guesses, guess):
+    list_of_guesses.append(guess)
+    return list_of_guesses
+
+    
 
 # Inital screen to display if user would like to play or exit
 def main_menu():
@@ -76,6 +82,7 @@ def main_menu():
     choice = input("Enter your choice: ")
     return choice
 
+
 # Main Menu Initalises game and asks user if they want to play!  
 while True:
     user_choice = main_menu()
@@ -85,7 +92,6 @@ while True:
        time.sleep(1)
        print("New Game! Goodluck!")
        time.sleep(1)
-       print(displayed_word)
     elif user_choice == "2":
         print("Thanks for playing!")
         sys.exit(0) 
@@ -94,20 +100,23 @@ while True:
         
     # Main game loop runs only if user asked to play, uses conditions and above functions for how to win or lose
     
-    while True:        
+    while True: 
+        print(displayed_word)        
         guess = input("Guess a Letter: ")
         if guess in guessed_letters:
             print("You guessed this letter already, try again!", end = " ")
         else:
+            guessed_letters = display_guessed_letters(guessed_letters, guess)
+            print(guessed_letters)
             if guess in selected_word:
-                incorrect_guesses -= 1
+                # incorrect_guesses -= 1
                 displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
-                print(displayed_word)
-            if "_" not in displayed_word:
-                won_game()# calls the won game function
             else:
+                incorrect_guesses += 1
                 if incorrect_guesses == max_incorrect_guesses:
                     failed_game()# calls failed game function
                 else:
-                    incorrect_guesses += 1
-                    incorrect_guess(guess) # calls incorrect guess function updates counter
+                    # incorrect_guesses += 1
+                    incorrect_guess() # calls incorrect guess function updates counter
+            if "_" not in displayed_word:
+                won_game()# calls the won game function
