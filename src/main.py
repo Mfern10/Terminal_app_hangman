@@ -2,6 +2,7 @@ import random
 import sys
 import pyfiglet
 import time 
+import os
 from Hangman_art import print_hangman
 # Create Word List for the games words
 word_list = [
@@ -29,6 +30,7 @@ def initialize_displayed_word(word):
     return "_" * len(word)
 
 displayed_word = initialize_displayed_word(selected_word)
+
 
 # call this function when the player fails
 def failed_game():
@@ -95,15 +97,25 @@ while True:
         print("Thanks for playing!")
         sys.exit(0) 
     else: 
-        print("Invalid choice. Please select a valid choice.")
+        if not user_choice == 1 or 2:
+            print("Please enter number 1 or 2.")
+        if not user_choice.isnumeric():
+            print("Invalid choice. Please select a valid choice.")
+        continue
         
     # Main game loop runs only if user asked to play, uses conditions and above functions for how to win or lose
     win_loss = 0
     while win_loss == 0: 
         print(displayed_word)        
-        guess = input("Guess a Letter: ")
+        guess = input("Guess a Letter: ").lower()
+        if len(guess) > 1:
+            print("Please enter ONE LETTER")
+            continue
+        if not guess.isalpha():
+            print("Please enter a LETTER.")
+            continue
         if guess in guessed_letters:
-            print("You guessed this letter already, try again!", end = " ")
+            print("You guessed this letter already, try again!")
         else:
             guessed_letters = display_guessed_letters(guessed_letters, guess)
             print(guessed_letters)
@@ -116,7 +128,7 @@ while True:
                     failed_game()# calls failed game function
                     incorrect_guesses = 0 # Resets information for new game
                     guessed_letters = []
-                    win_loss = 1
+                    win_loss = 1 
                 else:
                     # incorrect_guesses += 1
                     incorrect_guess() # calls incorrect guess function updates counter
@@ -124,4 +136,4 @@ while True:
                 won_game()# calls the won game function
                 incorrect_guesses = 0 # Resets information for new game
                 guessed_letters = []
-                win_loss = 1
+                win_loss = 1               
