@@ -1,6 +1,8 @@
 import random
 import sys
 import pyfiglet
+import time 
+from Hangman_art import print_hangman
 # Create Word List for the games words
 word_list = [
     "apple",
@@ -11,53 +13,8 @@ word_list = [
     "peach"
 ]
 
-# Hangman Art 
-def print_hangman(incorrect_guesses):
-    if incorrect_guesses == 0:
-        print("\n+---+")
-        print("    |")
-        print("    |")
-        print("    |")
-        print("   ===")
-    elif(incorrect_guesses == 1):
-        print("\n+---+")
-        print("O   |")
-        print("    |")
-        print("    |")
-        print("   ===")
-    elif(incorrect_guesses == 2):
-        print("\n+---+")
-        print("O   |")
-        print("|   |")
-        print("    |")
-        print("   ===")
-    elif(incorrect_guesses == 3):
-        print("\n+---+")
-        print(" O   |")
-        print("/|   |")
-        print("     |")
-        print("    ===")
-    elif(incorrect_guesses == 4):
-        print("\n+---+")
-        print(" O   |")
-        print("/|\  |")
-        print("     |")
-        print("    ===")
-    elif(incorrect_guesses == 5):
-        print("\n+---+")
-        print("  O   |")
-        print(" /|\  |")
-        print(" /    |")
-        print("     ===")
-    elif(incorrect_guesses == 6):
-        print("\n+---+")
-        print("  O   |")
-        print(" /|\  |")
-        print(" / \  |")
-        print("     ===")
-
 # Variables need for the game
-max_incorrect_guesses = 5
+max_incorrect_guesses = 6
 incorrect_guesses = 0
 guessed_letters = []
 
@@ -78,14 +35,18 @@ def failed_game():
     print_hangman(incorrect_guesses)
     ascii_banner = pyfiglet.figlet_format("GAME OVER!")
     print(ascii_banner)
+    print("PlEASE WAIT... LOADING MENU...")
+    time.sleep(1.5)
     sys.exit(1)
+
 
 # Call this function when the player wins
 def won_game():
     ascii_banner = pyfiglet.figlet_format("WINNER!")
     print(ascii_banner)
     print("Congratulations! You have won the game!")
-    sys.exit(0)
+    print("PlEASE WAIT... LOADING MENU...")
+    time.sleep(1.5)
 
 # This function is checking that the guess is within the selected word, 
 # if correct saving it to local iteration variable then returning the iteration variable once all letters are found
@@ -121,7 +82,10 @@ while True:
     if user_choice == "1":
        selected_word = select_word(word_list)
        displayed_word = initialize_displayed_word(selected_word)
-       print("New Game! Goodluck!", displayed_word)
+       time.sleep(1)
+       print("New Game! Goodluck!")
+       time.sleep(1)
+       print(displayed_word)
     elif user_choice == "2":
         print("Thanks for playing!")
         sys.exit(0) 
@@ -129,6 +93,7 @@ while True:
         print("Invalid choice. Please select a valid choice.")
         
     # Main game loop runs only if user asked to play, uses conditions and above functions for how to win or lose
+    
     while True:        
         guess = input("Guess a Letter: ")
         if guess in guessed_letters:
