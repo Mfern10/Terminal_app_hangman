@@ -38,7 +38,7 @@ def failed_game():
     print(f"Nice try the word you were looking for was: {selected_word}")
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
-    sys.exit(1)
+    
 
 
 # Call this function when the player wins
@@ -48,7 +48,7 @@ def won_game():
     print(f"Congratulations! You have won the game! The word was: {displayed_word}")
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
-    sys.exit(0)
+    
 
 # This function is checking that the guess is within the selected word, 
 # if correct saving it to local iteration variable then returning the iteration variable once all letters are found
@@ -70,7 +70,6 @@ def display_guessed_letters(list_of_guesses, guess):
     list_of_guesses.append(guess)
     return list_of_guesses
 
-    
 
 # Inital screen to display if user would like to play or exit
 def main_menu():
@@ -99,8 +98,8 @@ while True:
         print("Invalid choice. Please select a valid choice.")
         
     # Main game loop runs only if user asked to play, uses conditions and above functions for how to win or lose
-    
-    while True: 
+    win_loss = 0
+    while win_loss == 0: 
         print(displayed_word)        
         guess = input("Guess a Letter: ")
         if guess in guessed_letters:
@@ -115,8 +114,14 @@ while True:
                 incorrect_guesses += 1
                 if incorrect_guesses == max_incorrect_guesses:
                     failed_game()# calls failed game function
+                    incorrect_guesses = 0 # Resets information for new game
+                    guessed_letters = []
+                    win_loss = 1
                 else:
                     # incorrect_guesses += 1
                     incorrect_guess() # calls incorrect guess function updates counter
             if "_" not in displayed_word:
                 won_game()# calls the won game function
+                incorrect_guesses = 0 # Resets information for new game
+                guessed_letters = []
+                win_loss = 1
