@@ -50,6 +50,12 @@ def won_game():
     print(f"Congratulations! You have won the game! The word was: {displayed_word}")
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
+
+def clear_screen():
+    if os.name == "nt":
+        os.sytem("cls")
+    else:
+        os.system("clear")
     
 
 # This function is checking that the guess is within the selected word, 
@@ -82,6 +88,13 @@ def main_menu():
     print("2. Exit")
     choice = input("Enter your choice: ")
     return choice
+
+def reset():
+    global incorrect_guesses, guessed_letters, win_loss
+    incorrect_guesses = 0
+    guessed_letters = []
+    win_loss = 1
+    clear_screen()
 
 
 # Main Menu Initalises game and asks user if they want to play!  
@@ -126,14 +139,19 @@ while True:
                 incorrect_guesses += 1
                 if incorrect_guesses == max_incorrect_guesses:
                     failed_game()# calls failed game function
-                    incorrect_guesses = 0 # Resets information for new game
-                    guessed_letters = []
-                    win_loss = 1 
+                    reset()
+                    # incorrect_guesses = 0 # Resets information for new game
+                    # guessed_letters = []
+                    # win_loss = 1 
+                    # clear_screen() 
                 else:
                     # incorrect_guesses += 1
                     incorrect_guess() # calls incorrect guess function updates counter
             if "_" not in displayed_word:
                 won_game()# calls the won game function
-                incorrect_guesses = 0 # Resets information for new game
-                guessed_letters = []
-                win_loss = 1               
+                reset()
+                # incorrect_guesses = 0 # Resets information for new game
+                # guessed_letters = []
+                # win_loss = 1   
+                # clear_screen()   
+                        
