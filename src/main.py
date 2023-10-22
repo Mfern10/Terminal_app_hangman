@@ -140,6 +140,4 @@ while True:
                     incorrect_guess() # calls incorrect guess function updates counter
             if "_" not in displayed_word:
                 won_game()# calls the won game function
-                reset()
-     
-                        
+                reset()                        
