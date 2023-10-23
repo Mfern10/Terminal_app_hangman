@@ -4,31 +4,34 @@ import pyfiglet
 import time 
 import os
 from Hangman_art import print_hangman
+import functions
+
+
 
 # Constants
 
 # Functions
 def clear_screen():
     if os.name == "nt":
-        os.sytem("cls")
+        os.system("cls")
     else:
         os.system("clear")
 
-def reset():
-    global incorrect_guesses, guessed_letters, win_loss
+def reset(incorrect_guesses, guessed_letters, win_loss):
+    # global incorrect_guesses, guessed_letters, win_loss
     incorrect_guesses = 0
     guessed_letters = []
     win_loss = 1
-    clear_screen()
+    return incorrect_guesses, guessed_letters, win_loss and clear_screen()
 
-def correct_guess(correct_letter):
-    iteration = displayed_word
-    for i in range(len(selected_word)):
-        if correct_letter == selected_word[i]:
-            lst = list(iteration)
-            lst[i] = correct_letter
-            iteration = ("".join(lst))
-    return  iteration
+# def correct_guess(correct_letter):
+#     iteration = displayed_word
+#     for i in range(len(selected_word)):
+#         if correct_letter == selected_word[i]:
+#             lst = list(iteration)
+#             lst[i] = correct_letter
+#             iteration = ("".join(lst))
+#     return  iteration
 
 def incorrect_guess():
     print_hangman(incorrect_guesses)
@@ -52,14 +55,14 @@ def won_game():
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(1.5)
 
-def main_menu():
-    ascii_banner = pyfiglet.figlet_format("HANGMAN!")
-    print(ascii_banner)
-    print(""" <------Can you guess the secret word!-----> """)
-    print("1. Play")
-    print("2. Exit")
-    choice = input("Enter your choice: ")
-    return choice
+# def main_menu():
+#     ascii_banner = pyfiglet.figlet_format("HANGMAN!")
+#     print(ascii_banner)
+#     print(""" <------Can you guess the secret word!-----> """)
+#     print("1. Play")
+#     print("2. Exit")
+#     choice = input("Enter your choice: ")
+#     return choice
 
 # Variables
 word_list = [
@@ -84,7 +87,7 @@ def initialize_displayed_word(word):
 
 # Main Menu Initalises game and asks user if they want to play!  
 while True:
-    user_choice = main_menu()
+    user_choice = functions.main_menu()
     if user_choice == "1":
        selected_word = select_word(word_list)
        displayed_word = initialize_displayed_word(selected_word)
@@ -118,14 +121,14 @@ while True:
             guessed_letters = display_guessed_letters(guessed_letters, guess)
             print(guessed_letters)
             if guess in selected_word:
-                displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
+                displayed_word = functions.correct_guess(guess, displayed_word, selected_word) # update display word to show correct letter/ replace _ 
             else:
                 incorrect_guesses += 1
                 if incorrect_guesses == max_incorrect_guesses:
                     failed_game()# calls failed game function
-                    reset() 
+                    incorrect_guesses, guessed_letters, win_loss = reset(incorrect_guesses, guessed_letters, win_loss) 
                 else:
                     incorrect_guess() # calls incorrect guess function updates counter
             if "_" not in displayed_word:
                 won_game()# calls the won game function
-                reset()                        
+                incorrect_guesses, guessed_letters, win_loss = reset(incorrect_guesses, guessed_letters, win_loss) 
