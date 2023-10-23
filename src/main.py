@@ -4,16 +4,6 @@ import pyfiglet
 import time 
 import os
 from Hangman_art import print_hangman
-# Create Word List for the games words
-# word_list = [
-#     "apple",
-#     "banana",
-#     "strawberry",1
-
-#     "pineapple",
-#     "mango",
-#     "peach"
-# ]
 
 # Constants
 
@@ -128,7 +118,6 @@ while True:
             guessed_letters = display_guessed_letters(guessed_letters, guess)
             print(guessed_letters)
             if guess in selected_word:
-                # incorrect_guesses -= 1
                 displayed_word = correct_guess(guess) # update display word to show correct letter/ replace _ 
             else:
                 incorrect_guesses += 1
@@ -136,7 +125,6 @@ while True:
                     failed_game()# calls failed game function
                     reset() 
                 else:
-                    # incorrect_guesses += 1
                     incorrect_guess() # calls incorrect guess function updates counter
             if "_" not in displayed_word:
                 won_game()# calls the won game function
