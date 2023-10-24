@@ -3,70 +3,73 @@ import time
 import functions
 from random_word import RandomWords
 
-word_list = RandomWords()
-
-word_list.get_random_word()
-
-
-# Variables
-
-# word_list = [
-#     "apple",
-#     "banana",
-#     "strawberry",
-#     "pineapple",
-#     "mango",
-#     "peach"
-# ]
-max_incorrect_guesses = 6
-incorrect_guesses = 0
-guessed_letters = []
-
+class HangmanGame:
+    def __init__(self):
+        self.word_list = RandomWords()
+        self.max_incorrect_guesses = 6
+        self.incorrect_guesses = 0
+        self.guessed_letters = []
+        self.win_loss = 0
+        self.selected_word = ""
+        self.displayed_word = ""
+        self.playing = True
 
 # Main Menu Initalises game and asks user if they want to play!  
-while True:
-    user_choice = functions.main_menu()
-    if user_choice == "1":
-       selected_word = functions.select_word(word_list)
-       displayed_word = functions.initialize_displayed_word(selected_word)
-       time.sleep(1)
-       print("New Game! Goodluck!")
-       time.sleep(1)
-    elif user_choice == "2":
-        print("Thanks for playing!")
-        sys.exit(0) 
-    else: 
-        if not user_choice == 1 or 2:
-            print("Please enter number 1 or 2.")
-        if not user_choice.isnumeric():
-            print("Invalid choice. Please select a valid choice.")
-        continue
+    def start_game(self):
+        while self.playing:
+            user_choice = functions.main_menu()
+            if user_choice == "1":
+                self.selected_word = functions.select_word(self.word_list)
+                self.displayed_word = functions.initialize_displayed_word(self.selected_word)
+                time.sleep(1)
+                print("New Game! Goodluck!")
+                time.sleep(1)
+                self.play_game()
+            elif user_choice == "2":
+                print("Thanks for playing!")
+                self.playing = False
+                sys.exit(0) 
+            else: 
+                if not user_choice == 1 or 2:
+                    print("Please enter number 1 or 2.")
+                if not user_choice.isnumeric():
+                    print("Invalid choice. Please select a valid choice.")
+                
         
     # Main game loop
-    win_loss = 0
-    while win_loss == 0: 
-        print(displayed_word)        
-        guess = input("Guess a Letter: ").lower()
-        if len(guess) > 1:
-            print("Please enter ONE LETTER")
-            continue
-        if not guess.isalpha():
-            print("Please enter a LETTER.")
-            continue
-        if guess in guessed_letters:
-            print("You guessed this letter already, try again!")
-        else:
-            guessed_letters = functions.display_guessed_letters(guessed_letters, guess)
-            print(guessed_letters)
-            if guess in selected_word:
-                displayed_word = functions.correct_guess(guess, displayed_word, selected_word) # update display word to show correct letter/ replace _ 
+    def play_game(self):
+        self.win_loss = 0
+        while self.win_loss == 0: 
+            print(self.displayed_word)        
+            guess = input("Guess a Letter: ").lower()
+            if len(guess) > 1:
+                print("Please enter ONE LETTER")
+                continue
+            if not guess.isalpha():
+                print("Please enter a LETTER.")
+                continue
+            if guess in self.guessed_letters:
+                print("You guessed this letter already, try again!")
             else:
-                incorrect_guesses += 1
-                if incorrect_guesses == max_incorrect_guesses:
-                    functions.failed_game(selected_word)# calls failed game function
-                    incorrect_guesses, guessed_letters, win_loss = functions.reset(incorrect_guesses, guessed_letters, win_loss) 
+                self.guessed_letters = functions.display_guessed_letters(self.guessed_letters, guess)
+                print(self.guessed_letters)
+                if guess in self.selected_word:
+                    self.displayed_word = functions.correct_guess(guess, self.displayed_word, self.selected_word) # update display word to show correct letter/ replace _ 
                 else:
-                    functions.incorrect_guess(incorrect_guesses) # calls incorrect guess function updates counter
-            if "_" not in displayed_word:
-                functions.won_game(displayed_word)# calls the won game function
-                incorrect_guesses, guessed_letters, win_loss = functions.reset(incorrect_guesses, guessed_letters, win_loss) 
+                    self.incorrect_guesses += 1
+                    if self.incorrect_guesses == self.max_incorrect_guesses:
+                        functions.failed_game(self.selected_word)# calls failed game function
+                        self.incorrect_guesses, self.guessed_letters, self.win_loss = functions.reset(self.incorrect_guesses, self.guessed_letters, self.win_loss)
+                        break 
+                    else:
+                        functions.incorrect_guess(self.incorrect_guesses) # calls incorrect guess function updates counter
+                if "_" not in self.displayed_word:
+                    functions.won_game(self.displayed_word)# calls the won game function
+                    self.incorrect_guesses, self.guessed_letters, self.win_loss = functions.reset(self.incorrect_guesses, self.guessed_letters, self.win_loss)
+                    
+
+
+if __name__ == "__main__":
+    game = HangmanGame()
+    while game.playing:
+        game.start_game()

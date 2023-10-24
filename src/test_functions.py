@@ -23,6 +23,13 @@ class TestCorrectGuess:
         result = functions.correct_guess("z", "_____", "apple")
         assert result == "_____"
     
+    # when guesss is incorrect appends to the guessed letters list
+    # and does not update display word
+
+
+
+    
+
 
 
 
