@@ -1,4 +1,49 @@
 import pyfiglet
+import os
+from Hangman_art import print_hangman
+import time
+import random
+
+def clear_screen():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
+def reset(incorrect_guesses, guessed_letters, win_loss):
+    incorrect_guesses = 0
+    guessed_letters = []
+    win_loss = 1
+    return incorrect_guesses, guessed_letters, win_loss and clear_screen()
+
+def incorrect_guess(incorrect_guesses):
+    print_hangman(incorrect_guesses)
+
+def display_guessed_letters(list_of_guesses, guess):
+    list_of_guesses.append(guess)
+    return list_of_guesses
+
+def failed_game(selected_word):
+    print_hangman(incorrect_guess)
+    ascii_banner = pyfiglet.figlet_format("GAME OVER!")
+    print(ascii_banner)
+    print(f"Nice try the word you were looking for was: {selected_word}")
+    print("PlEASE WAIT... LOADING MENU...")
+    time.sleep(1.5)
+
+def won_game(displayed_word):
+    ascii_banner = pyfiglet.figlet_format("WINNER!")
+    print(ascii_banner)
+    print(f"Congratulations! You have won the game! The word was: {displayed_word}")
+    print("PlEASE WAIT... LOADING MENU...")
+    time.sleep(1.5)
+
+def select_word(word_list):
+    return random.choice(word_list)
+
+# Displays selected word as underscores
+def initialize_displayed_word(word):
+    return "_" * len(word)
 
 def main_menu():
     ascii_banner = pyfiglet.figlet_format("HANGMAN!")
