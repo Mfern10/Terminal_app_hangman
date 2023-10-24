@@ -23,8 +23,17 @@ class TestCorrectGuess:
         result = functions.correct_guess("z", "_____", "apple")
         assert result == "_____"
     
-    # when guesss is incorrect appends to the guessed letters list
-    # and does not update display word
+
+class TestDisplayGuessedLetters:
+    def test_displays_letters_guessed_in_list(self):
+        result = functions.display_guessed_letters(["a", "b", "c", "d"], "s")
+        assert result == ["a", "b", "c", "d", "s"]
+
+
+        
+
+
+
 
 
 

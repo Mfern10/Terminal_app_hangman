@@ -2,7 +2,8 @@ import pyfiglet
 import os
 from Hangman_art import print_hangman
 import time
-import random
+from random_word import RandomWords
+
 
 def clear_screen():
     if os.name == "nt":
@@ -10,11 +11,11 @@ def clear_screen():
     else:
         os.system("clear")
 
-def reset(incorrect_guesses, guessed_letters, win_loss):
-    incorrect_guesses = 0
-    guessed_letters = []
-    win_loss = 1
-    return incorrect_guesses, guessed_letters, win_loss and clear_screen()
+def reset(self):
+    self.incorrect_guesses = 0
+    self.guessed_letters = []
+    self.win_loss = 1
+    clear_screen()
 
 def incorrect_guess(incorrect_guesses):
     print_hangman(incorrect_guesses)

@@ -59,16 +59,14 @@ class HangmanGame:
                     self.incorrect_guesses += 1
                     if self.incorrect_guesses == self.max_incorrect_guesses:
                         functions.failed_game(self.selected_word)# calls failed game function
-                        self.incorrect_guesses, self.guessed_letters, self.win_loss = functions.reset(self.incorrect_guesses, self.guessed_letters, self.win_loss)
+                        functions.reset(self)
                         break 
                     else:
                         functions.incorrect_guess(self.incorrect_guesses) # calls incorrect guess function updates counter
                 if "_" not in self.displayed_word:
                     functions.won_game(self.displayed_word)# calls the won game function
-                    self.incorrect_guesses, self.guessed_letters, self.win_loss = functions.reset(self.incorrect_guesses, self.guessed_letters, self.win_loss)
+                    functions.reset(self)
                     
-
-
 if __name__ == "__main__":
     game = HangmanGame()
     while game.playing:
