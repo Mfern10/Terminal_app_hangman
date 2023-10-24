@@ -29,17 +29,17 @@ def failed_game(selected_word):
     print(ascii_banner)
     print(f"Nice try the word you were looking for was: {selected_word}")
     print("PlEASE WAIT... LOADING MENU...")
-    time.sleep(1.5)
+    time.sleep(2.5)
 
 def won_game(displayed_word):
     ascii_banner = pyfiglet.figlet_format("WINNER!")
     print(ascii_banner)
     print(f"Congratulations! You have won the game! The word was: {displayed_word}")
     print("PlEASE WAIT... LOADING MENU...")
-    time.sleep(1.5)
+    time.sleep(2.5)
 
 def select_word(word_list):
-    return random.choice(word_list)
+    return word_list.get_random_word()
 
 # Displays selected word as underscores
 def initialize_displayed_word(word):
