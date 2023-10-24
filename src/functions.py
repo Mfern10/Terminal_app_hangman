@@ -4,26 +4,30 @@ from Hangman_art import print_hangman
 import time
 from random_word import RandomWords
 
-
+# clear screen function clears terminal state for windows or mac
 def clear_screen():
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
 
+# resets variable back to pre game state and clears screen for user experience
 def reset(self):
     self.incorrect_guesses = 0
     self.guessed_letters = []
     self.win_loss = 1
     clear_screen()
 
+# prints correct hangman art for incorrect guesss
 def incorrect_guess(incorrect_guesses):
     print_hangman(incorrect_guesses)
 
+# appeneds all guesses to a list to be displayed on screen showing previous guesses
 def display_guessed_letters(list_of_guesses, guess):
     list_of_guesses.append(guess)
     return list_of_guesses
 
+# displays game over message resets back to main menu
 def failed_game(selected_word):
     print_hangman(incorrect_guess)
     ascii_banner = pyfiglet.figlet_format("GAME OVER!")
@@ -32,6 +36,7 @@ def failed_game(selected_word):
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(2.5)
 
+# displays won game message resets to main menu
 def won_game(displayed_word):
     ascii_banner = pyfiglet.figlet_format("WINNER!")
     print(ascii_banner)
@@ -39,6 +44,7 @@ def won_game(displayed_word):
     print("PlEASE WAIT... LOADING MENU...")
     time.sleep(2.5)
 
+#function selects a word from random-word
 def select_word(word_list):
     return word_list.get_random_word()
 
@@ -46,6 +52,7 @@ def select_word(word_list):
 def initialize_displayed_word(word):
     return "_" * len(word)
 
+# function for main menu
 def main_menu():
     ascii_banner = pyfiglet.figlet_format("HANGMAN!")
     print(ascii_banner)
@@ -55,6 +62,8 @@ def main_menu():
     choice = input("Enter your choice: ")
     return choice
 
+# checks for correct guess in displayed word iterates though and makes a list of the 
+# letters that are withn the word 
 def correct_guess(correct_letter, displayed_word, selected_word):
     iteration = displayed_word
     for i in range(len(selected_word)):

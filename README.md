@@ -63,5 +63,19 @@ the main menu and also if a loss occurs.
 
 
 ## Implementation Plan
+For my implentation plan I first wrote down what I thought needed to be completed to make a functioning Hangman game. I decided what features it should have and put checkpoints and set duration estimate for tasks. 
+
+I used [Linear](https://linear.app/mitchells-workspace/project/hangman-terminal-application-492f08c73346/MIT) This was my first time using linear and was a good learning experience. 
+
+As I developed my application I ran into extra features to be added or more things that could be done to improve my application. I tried my best to add these issues to the board.
+
+Below I will provide some screenshots of what my Development plan looked like at the beginning, some screenshots during and what it looked like at the end.
+
+### Linear screenshots
 
 ## Help documentation
+Install python 3 latest version for your device
+activate Virtual Environment
+run install dependencies script
+run ./run_hangan.sh
+have fun

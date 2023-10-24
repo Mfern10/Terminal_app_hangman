@@ -3,6 +3,7 @@ import time
 import functions
 from random_word import RandomWords
 
+# creates class for the main game including initial variables etc.
 class HangmanGame:
     def __init__(self):
         self.word_list = RandomWords()
@@ -66,7 +67,8 @@ class HangmanGame:
                 if "_" not in self.displayed_word:
                     functions.won_game(self.displayed_word)# calls the won game function
                     functions.reset(self)
-                    
+
+#envokes the class in order of how it should function                   
 if __name__ == "__main__":
     game = HangmanGame()
     while game.playing:

@@ -1,4 +1,4 @@
-# Hangman Art 
+# Hangman Art ASCII art to create the hangman images
 def print_hangman(incorrect_guesses):
     if incorrect_guesses == 0:
         print("\n")
