@@ -43,28 +43,29 @@ class HangmanGame:
         while self.win_loss == 0: 
             print(self.displayed_word)        
             guess = input("Guess a Letter: ").lower()
-            if len(guess) > 1:
-                print("Please enter ONE LETTER")
+            try:
+                if len(guess) > 1:
+                    raise ValueError("Please enter ONE LETTER")
+                if not guess.isalpha():
+                    raise ValueError("Please enter a LETTER.")
+                if guess in self.guessed_letters:
+                    raise ValueError("You guessed this letter already, try again!")
+            except ValueError as error:
+                print(error)
                 continue
-            if not guess.isalpha():
-                print("Please enter a LETTER.")
-                continue
-            if guess in self.guessed_letters:
-                print("You guessed this letter already, try again!")
+            self.guessed_letters = functions.display_guessed_letters(self.guessed_letters, guess)
+            print(self.guessed_letters)
+            if guess in self.selected_word:
+                self.displayed_word = functions.correct_guess(guess, self.displayed_word, self.selected_word) # update display word to show correct letter/ replace _ 
             else:
-                self.guessed_letters = functions.display_guessed_letters(self.guessed_letters, guess)
-                print(self.guessed_letters)
-                if guess in self.selected_word:
-                    self.displayed_word = functions.correct_guess(guess, self.displayed_word, self.selected_word) # update display word to show correct letter/ replace _ 
+                self.incorrect_guesses += 1
+                if self.incorrect_guesses == self.max_incorrect_guesses:
+                    functions.failed_game(self.selected_word)# calls failed game function
+                    functions.reset(self)
+                    break 
                 else:
-                    self.incorrect_guesses += 1
-                    if self.incorrect_guesses == self.max_incorrect_guesses:
-                        functions.failed_game(self.selected_word)# calls failed game function
-                        functions.reset(self)
-                        break 
-                    else:
-                        functions.incorrect_guess(self.incorrect_guesses) # calls incorrect guess function updates counter
-                if "_" not in self.displayed_word:
+                    functions.incorrect_guess(self.incorrect_guesses) # calls incorrect guess function updates counter
+            if "_" not in self.displayed_word:
                     functions.won_game(self.displayed_word)# calls the won game function
                     functions.reset(self)
 

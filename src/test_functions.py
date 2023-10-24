@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import patch
 import functions
+from random_word import RandomWords
 
 #This tests my main menu is allowing correct input selection
 class TestMainMenu:
@@ -24,12 +25,14 @@ class TestCorrectGuess:
     def test_word_doesnt_update(self):
         result = functions.correct_guess("z", "_____", "apple")
         assert result == "_____"
-    
+
 #This test checks that guesses are being appended correctly to the list and displayed
 class TestDisplayGuessedLetters:
     def test_displays_letters_guessed_in_list(self):
         result = functions.display_guessed_letters(["a", "b", "c", "d"], "s")
         assert result == ["a", "b", "c", "d", "s"]
+
+
 
 
         
