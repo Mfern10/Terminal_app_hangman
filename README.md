@@ -74,8 +74,22 @@ Below I will provide some screenshots of what my Development plan looked like at
 ### Linear screenshots
 
 ## Help documentation
-Install python 3 latest version for your device
-activate Virtual Environment
-run install dependencies script
-run ./run_hangan.sh
-have fun
+
+### Prerequistes:
+1. If you don't already please install python 3.10 or higher on your system. You can find a link to python [HERE](https://www.python.org/downloads/)
+2. Must have Bash for running scripts(This should be available by default on MAC or Linux if you are using Windows you can use Git Bash).
+### Making file and cloning repository
+1. Open your terminal create a file with ```mkdir "filename"``` change directory into the new file ```cd "filename"```
+2. Once in your preferred directory clone the repository using this command ```git clone https://github.com/Mfern10/Terminal_app_hangman.git```
+3. All files should now be available in your directory.
+### Create Virtual environment
+1. In your folder create a virtual environment by running the following command ```python -m venv hangman-env``` This will create your virtual environment.
+2. activate the virtual environment. FOR WINDOWS ONLY RUN ```hangman-env\Scripts\activate``` FOR MAC OS AND LINUX ONLY RUN ```source hangman-env/bin/activate```
+### Dependencies Script
+1. Check if the dependencies script is executable by running ```chmod +x install_hangman_dependencies.sh```
+2. RUN DEPENDENCIED SCRIPT ```./install_hangman_dependencies.sh``` this should install all needed modules and dependencies.
+### Play game scripts
+1. Check to make sure game is executable by running ```chmod +x run_hangman.sh```.
+2. Now make sure the script is in the current directory for where you are trying to run the game and virtual envirment is active eg: ```(.venv) mdf@Mitchells-MacBook-Pro Terminal_app_hangman %```
+3. NOW RUN ```./run_hangman``` in the directory and you are ready to play hangman! 
+
