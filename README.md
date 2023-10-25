@@ -74,7 +74,10 @@ Below I will provide some screenshots of what my Development plan looked like at
 ### Linear screenshots
 
 ## Help documentation
+### FOR WINDOWS USERS ONLY
+Currently this version of Hangman runs on MAC OS and LINUX, you can use it on your windows machine by installing WSL UBUNUTU. Please follow the guide provided [HERE](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview) 
 
+Once you have completed these steps continue to the next part of the installation.
 ### Prerequistes:
 1. If you don't already please install python 3.10 or higher on your system. You can find a link to python [HERE](https://www.python.org/downloads/)
 2. Must have Bash for running scripts(This should be available by default on MAC or Linux if you are using Windows you can use Git Bash).
