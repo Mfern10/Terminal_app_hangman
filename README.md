@@ -72,6 +72,8 @@ As I developed my application I ran into extra features to be added or more thin
 Below I will provide some screenshots of what my Development plan looked like at the beginning, some screenshots during and what it looked like at the end.
 
 ### Linear screenshots
+![LinearDevelopmentscreenshot](docs/Fulllist 2023-10-19 at 14.47.47.png)
+![LinearDevelopmentscreenshot](docs/Feature1checklist 2023-10-19 at 15.40.27.png)
 
 ## Help documentation
 ### FOR WINDOWS USERS ONLY
