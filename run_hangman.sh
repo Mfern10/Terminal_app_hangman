@@ -2,6 +2,6 @@
 
 PYTHON_INTERPRETER="python3"
 
-cd /users/mdf/Terminal_app_hangman/src
+cd src
 
 $PYTHON_INTERPRETER main.py

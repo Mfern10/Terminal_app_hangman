@@ -83,7 +83,7 @@ Below I will provide some screenshots of what my Development plan looked like at
 2. Once in your preferred directory clone the repository using this command ```git clone https://github.com/Mfern10/Terminal_app_hangman.git```
 3. All files should now be available in your directory.
 ### Create Virtual environment
-1. In your folder create a virtual environment by running the following command ```python -m venv hangman-env``` This will create your virtual environment.
+1. In your folder create a virtual environment by running the following command for WINDOWS ```python -m venv hangman-env``` and for MACOS or LINUX ```python3 -m venv hangman-env``` This will create your virtual environment.
 2. activate the virtual environment. FOR WINDOWS ONLY RUN ```hangman-env\Scripts\activate``` FOR MAC OS AND LINUX ONLY RUN ```source hangman-env/bin/activate```
 ### Dependencies Script
 1. Check if the dependencies script is executable by running ```chmod +x install_hangman_dependencies.sh```
