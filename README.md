@@ -72,8 +72,37 @@ As I developed my application I ran into extra features to be added or more thin
 Below I will provide some screenshots of what my Development plan looked like at the beginning, some screenshots during and what it looked like at the end.
 
 ### Linear screenshots
+#### List of features to implement with set dates to the right.
+This was from the start of my project and scrolls further.
+![Linear](/docs/fulllist1.png)
+#### Feature 1 checklist
+Basic outline of what I wanted to implement and how to do it.
+![Linear](/docs/feature1checklist.png)
+#### Feature 2 checklist
+Shows which checked features are in progress also set dates to meet.
+![Linear](/docs/feature2checklist.png)
+#### Feature 3 checklist
+Once again shows check points of feature 3 to implement a time to finish it.
+![linear](/docs/feature3checklist.png)
+#### Full board 20/10/2023
+Shows progress of all features on board.
+![Linear](/docs/fullboard20.png)
+#### Full board 21/10/2023
+Shows progress from the 21st
+![Linear](/docs/fullboard21.png)
+#### Full board 22/10/2023
+Shows progress from the 22nd
+![Linear](/docs/fullboard22.png)
+#### Fullboard 23/10/2023
+Shows progress as of the 23rd
+![Linear](/docs/fullboard23.png)
+#### Full board 25/10/2023
+Shows progress as of the 25th
+![Linear](/docs/fullboard25.png)
 
-![Linear](/Users/mdf/Terminal_app_hangman/docs/Fulllist 2023-10-19 at 14.47.47.png)
+This was my first time using a program like this and I learn't alot but next time I want to make it more refined and detailed... really plan well what I want my program to have as to not end up with suprises at the end. 
+
+The main goal originally was to have 3 features and implement them in order but I ended up having some more feature ideas that were added and definitely got side tracked but it was a great learning process that I plan on improving next time.
 
 
 ## Help documentation

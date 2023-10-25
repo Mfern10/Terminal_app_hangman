@@ -4,8 +4,10 @@ from random_word import RandomWords
 from unittest import TestCase
 from unittest.mock import patch
 
-#The test test the main class initalizes the correct variables before 
+# The test test the main class initalizes the correct variables before
 # starting the game.
+
+
 class TestHangmanGame(TestCase):
     def test_Hangman_game_initialization(self):
         game = HangmanGame()

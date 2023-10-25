@@ -7,35 +7,35 @@ def print_hangman(incorrect_guesses):
         print("      |")
         print("      |")
         print("     ===")
-    elif(incorrect_guesses == 1):
+    elif (incorrect_guesses == 1):
         print("\n")
         print("  +---+")
         print("  O   |")
         print("      |")
         print("      |")
         print("     ===")
-    elif(incorrect_guesses == 2):
+    elif (incorrect_guesses == 2):
         print("\n")
         print("  +---+")
         print("  O   |")
         print("  |   |")
         print("      |")
         print("     ===")
-    elif(incorrect_guesses == 3):
+    elif (incorrect_guesses == 3):
         print("\n")
         print("  +---+")
         print("  O   |")
         print(" /|   |")
         print("      |")
         print("     ===")
-    elif(incorrect_guesses == 4):
+    elif (incorrect_guesses == 4):
         print("\n")
         print("  +---+")
         print("  O   |")
         print(" /|\  |")
         print("      |")
         print("     ===")
-    elif(incorrect_guesses == 5):
+    elif (incorrect_guesses == 5):
         print("\n")
         print("  +---+")
         print("  O   |")
@@ -49,4 +49,3 @@ def print_hangman(incorrect_guesses):
         print(" /|\  |")
         print(" / \  |")
         print("     ===")
-    
