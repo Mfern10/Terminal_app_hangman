@@ -1,6 +1,5 @@
 import pyfiglet
 import os
-from hangman_art import print_hangman
 import time
 
 

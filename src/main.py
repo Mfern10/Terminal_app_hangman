@@ -2,6 +2,7 @@ import sys
 import time
 import functions
 from random_word import RandomWords
+import pyfiglet
 
 # creates class for the main game including initial variables etc.
 
