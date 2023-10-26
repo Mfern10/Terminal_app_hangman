@@ -1,6 +1,7 @@
 import pyfiglet
 import os
 import time
+from hangman_art import print_hangman
 
 
 # clear screen function clears terminal state for windows or mac
