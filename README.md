@@ -29,6 +29,8 @@ by the player. This forms the core of the games challenge, they now know the len
 This feature was implemented by using 2 simple functions one to define the selection of the word from the list.
 The next function would display the length of the word as underscores.
 
+This feature uses functions variables and conditions.
+
 ### Feature 2: Guessing and Validation
 This feature is where the player starts to interact with the game. It asks the player to input a letter to guess,
 ofcourse handling any incorrect inputs such as numbers or strings of characters or symbols. It then validates the guesses
@@ -43,6 +45,8 @@ If incorrect the letter will be appened so that it is known not to use it again 
 
 The player receives unlimited guesses but six incorrect guesses total as this will display the full hangman image.
 
+This features uses while loops error handling and conditions inline with control flow. It Also uses variables and functions.
+
 ### Feature 3: Winning and Losing Conditions
 This feature determins when the game ends and when it breaks its loop. It must track the players progress such as incorrect guesses
 correct guesses. 
@@ -53,12 +57,15 @@ It will exit the loop showing a game over message.
 A win condition is when all the letters in the word have been displayed. All the underscores have been replaced with the correct 
 letters. Upon a win the Game will show a **WINNER** message.
 
+
 ### Feature 4: Main Menu
 This Feature was added later in my process to add more User experience. The Menu displays a Title and a choice whether to play or exit.
 The feature handles for input errors so only 2 conditions can be input play or exit. 
 
 The menu is Displayed in 3 instances. At the start of opening the application, If the player wins the screen will clear and return to 
-the main menu and also if a loss occurs.
+the main menu and also if a loss occurs. 
+
+This feature makes good use of error handling loops and functions.
 
 
 
@@ -115,9 +122,10 @@ Once you have completed these steps continue to the next part of the installatio
 2. Must have Bash for running scripts(This should be available by default on MAC or Linux if you are using Windows you can use Git Bash).
 3. git must also be installed on your computer to install git head to You can find information on how to install git [HERE](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Making file and cloning repository
-1. Open your terminal and check you are in the directory you wish to clone the repository or make a directory with ```mkdir "filename"``` change directory into the new file ```cd "filename"```
+1. Open your terminal and check you are in the directory you wish to clone the repository or make a directory with ```mkdir "filename"``` change directory into the new file ```cd "filename"```. 
 2. Once in your preferred directory clone the repository using this command ```git clone https://github.com/Mfern10/Terminal_app_hangman.git```
 3. All files should now be available in your directory.
+4. When finished make sure you ```cd Terminal_app_hangman``` use ```pwd``` to check you are in the Terminal_app_hangman directory.
 ### Create Virtual environment
 1. In your folder create a virtual environment by running the following command for WINDOWS ```python -m venv hangman-env``` and for MACOS or LINUX ```python3 -m venv hangman-env``` This will create your virtual environment.
 2. activate the virtual environment. FOR WINDOWS ONLY RUN ```hangman-env\Scripts\activate``` FOR MAC OS AND LINUX ONLY RUN ```source hangman-env/bin/activate```
