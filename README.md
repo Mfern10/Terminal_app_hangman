@@ -113,13 +113,15 @@ Once you have completed these steps continue to the next part of the installatio
 ### Prerequistes:
 1. If you don't already please install python 3.10 or higher on your system. You can find a link to python [HERE](https://www.python.org/downloads/)
 2. Must have Bash for running scripts(This should be available by default on MAC or Linux if you are using Windows you can use Git Bash).
+3. git must also be installed on your computer to install git head to You can find information on how to install git [HERE](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Making file and cloning repository
-1. Open your terminal create a file with ```mkdir "filename"``` change directory into the new file ```cd "filename"```
+1. Open your terminal and check you are in the directory you wish to clone the repository or make a directory with ```mkdir "filename"``` change directory into the new file ```cd "filename"```
 2. Once in your preferred directory clone the repository using this command ```git clone https://github.com/Mfern10/Terminal_app_hangman.git```
 3. All files should now be available in your directory.
 ### Create Virtual environment
 1. In your folder create a virtual environment by running the following command for WINDOWS ```python -m venv hangman-env``` and for MACOS or LINUX ```python3 -m venv hangman-env``` This will create your virtual environment.
 2. activate the virtual environment. FOR WINDOWS ONLY RUN ```hangman-env\Scripts\activate``` FOR MAC OS AND LINUX ONLY RUN ```source hangman-env/bin/activate```
+3. When the virtual environement is activated it should look like this ```(hangman-env) MDF  Desktop/Terminal_app_hangman %``` or similar.
 ### Dependencies Script
 1. Check if the dependencies script is executable by running ```chmod +x install_hangman_dependencies.sh```
 2. RUN DEPENDENCIED SCRIPT ```./install_hangman_dependencies.sh``` this should install all needed modules and dependencies.

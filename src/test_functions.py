@@ -3,6 +3,11 @@ from unittest.mock import patch
 import functions
 from random_word import RandomWords
 
+#These tests test the main functions that are crucial to the choices display 
+# and string manipulation in my code. These test check the functions are working
+# as required in order for the Display and Validate guessing features of the 
+# are working.
+
 # This tests my main menu is allowing correct input selection
 
 

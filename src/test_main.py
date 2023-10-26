@@ -5,7 +5,8 @@ from unittest import TestCase
 from unittest.mock import patch
 
 # The test test the main class initalizes the correct variables before
-# starting the game.
+# starting the game. It checks that the variables are initialised at the
+# start of each game in order to run the game correctly.
 
 
 class TestHangmanGame(TestCase):
