@@ -30,7 +30,8 @@ class TestCorrectGuess:
         result = functions.correct_guess("z", "_____", "apple")
         assert result == "_____"
 
-# This test checks that guesses are being appended correctly to the list and displayed
+# This test checks that guesses are being appended correctly to the 
+# list and displayed
 
 
 class TestDisplayGuessedLetters:

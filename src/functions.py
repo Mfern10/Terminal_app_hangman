@@ -2,7 +2,7 @@ import pyfiglet
 import os
 from hangman_art import print_hangman
 import time
-from random_word import RandomWords
+
 
 # clear screen function clears terminal state for windows or mac
 
@@ -28,7 +28,8 @@ def reset(self):
 def incorrect_guess(incorrect_guesses):
     print_hangman(incorrect_guesses)
 
-# appeneds all guesses to a list to be displayed on screen showing previous guesses
+# appeneds all guesses to a list to be displayed on screen
+#  showing previous guesses
 
 
 def display_guessed_letters(list_of_guesses, guess):
@@ -81,7 +82,8 @@ def main_menu():
     choice = input("Enter your choice: ")
     return choice
 
-# checks for correct guess in displayed word iterates though and makes a list of the
+# checks for correct guess in displayed word iterates
+#  though and makes a list of the
 # letters that are withn the word
 
 

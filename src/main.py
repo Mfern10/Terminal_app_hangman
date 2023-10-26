@@ -59,7 +59,7 @@ class HangmanGame:
                 continue
             self.guessed_letters = functions.display_guessed_letters(
                 self.guessed_letters, guess)
-            print(self.guessed_letters)
+            print(f"Your previous guesses are {self.guessed_letters}!")
             if guess in self.selected_word:
                 self.displayed_word = functions.correct_guess(
                     guess, self.displayed_word, self.selected_word)
