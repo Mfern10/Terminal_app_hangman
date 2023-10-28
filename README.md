@@ -7,7 +7,6 @@ you will get a total number of guesses before either winning or reaching game ov
 
 HAVE FUN！！！！ LET'S PLAY HANGMAN!!!!
 
-## References
 
 ## Links
 [Github Repo](https://github.com/Mfern10/Terminal_app_hangman)
@@ -138,3 +137,16 @@ Once you have completed these steps continue to the next part of the installatio
 2. Now make sure the script is in the current directory for where you are trying to run the game and virtual envirment is active eg: ```(.venv) mdf@Mitchells-MacBook-Pro Terminal_app_hangman %```
 3. NOW RUN ```./run_hangman``` in the directory and you are ready to play hangman! 
 
+## References
+29.1. sys — System-specific parameters and functions — Python 3.5.9 documentation n.d., docs.python.org, viewed 23 October 2023, <https://docs.python.org/3.5/library/sys.html#sys.platform>.
+
+
+Python 2019, Os — Miscellaneous Operating System Interfaces — Python 3.8.0 documentation, Python.org.
+
+Rivera), PW (Thanks to CJ and S n.d., pyfiglet: Pure-python FIGlet implementation, PyPI, viewed 23 October 2023, <https://pypi.org/project/pyfiglet/>.
+
+Singh , V n.d., Random-Word: This is a simple python package to generate random english words, PyPI.
+
+unittest.mock — mock object library — Python 3.10.4 documentation n.d., docs.python.org.
+
+van Rossum, G, Warsaw, B & Coghlan, N 2001, PEP 8 – Style Guide for Python Code | peps.python.org, peps.python.org.
