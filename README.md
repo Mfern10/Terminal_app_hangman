@@ -10,6 +10,10 @@ HAVE FUN！！！！ LET'S PLAY HANGMAN!!!!
 
 ## Links
 [Github Repo](https://github.com/Mfern10/Terminal_app_hangman)
+[Linear](https://linear.app/mitchells-workspace/project/hangman-terminal-application-492f08c73346/MIT)
+[Style guide](https://peps.python.org/pep-0008/)
+
+
 
 ## Code Style Guide
 For my project since I was coding in python to build my application, I used PEP 8 Style Guide.
