@@ -114,6 +114,12 @@ This was my first time using a program like this and I learn't alot but next tim
 
 The main goal originally was to have 3 features and implement them in order but I ended up having some more feature ideas that were added and definitely got side tracked but it was a great learning process that I plan on improving next time.
 
+## System Requirements
+1. Must have a working computer with either MACOS, LINUX OR WINDOWS
+2. WINDOWS users please run the application through ubuntu steps below:
+3. Python 3.10 or higher must be installed
+4. must have access to a bash terminal.
+
 
 ## Help documentation
 ### FOR WINDOWS USERS ONLY
